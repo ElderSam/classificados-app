@@ -1,0 +1,12 @@
+.App-header {
+    min-height: 15vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 100;
+}
+
+.App-header button {
+    font-size: 16px;
+}
