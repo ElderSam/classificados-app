@@ -9,4 +9,10 @@
 
 .App-header button {
     font-size: 16px;
+    font-weight: 500;
+}
+
+.App-header button:hover {
+    background-color: lightgreen;
+    color: black;
 }
