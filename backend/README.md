@@ -20,4 +20,8 @@ Open Visual Studio and click in Run
 Navigate to;
 	http://localhost:<port>/api/classifieds -> Get all Classifieds
 	http://localhost:<port>/api/classifieds/{id here} -> Get Classifieds by Id
+
+-------------
+I developed this project based on this Tutorial;
+https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-mongo-app?view=aspnetcore-5.0&tabs=visual-studio#configure-json-serialization-options
 	
