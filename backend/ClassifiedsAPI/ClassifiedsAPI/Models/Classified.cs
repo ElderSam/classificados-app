@@ -13,10 +13,9 @@ namespace ClassifiedsAPI.Models
         [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }
 
-        [BsonElement("title")] // The Title property is annotated with the [BsonElement] attribute. The attribute's value of 'title' represents the property title in the MongoDB collection.
-        public string Title { get; set; }
-        public string Description { get; set; }
-        public string Date { get; set; }
-
+        [BsonElement("title")] // The title property is annotated with the [BsonElement] attribute. The attribute's value of 'title' represents the property title in the MongoDB collection.
+        public string title { get; set; }
+        public string description { get; set; }
+        public string date { get; set; }
     }
 }

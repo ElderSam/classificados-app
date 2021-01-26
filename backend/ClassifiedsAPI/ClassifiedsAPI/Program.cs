@@ -13,7 +13,14 @@ namespace ClassifiedsAPI
     {
         public static void Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
+            try
+            {
+                CreateHostBuilder(args).Build().Run();
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Could't pass JSON");
+            }
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
