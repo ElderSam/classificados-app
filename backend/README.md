@@ -18,8 +18,31 @@ Open Visual Studio and click in Run
 
 #3. Test the web API
 Navigate to;
+	GET (List);
 	http://localhost:<port>/api/classifieds -> Get all Classifieds
 	http://localhost:<port>/api/classifieds/{id here} -> Get Classifieds by Id
+	
+	POST (Create);
+	/api/classifieds/api/Classifieds
+	
+	example;
+	{
+		"title": "test POST Create",
+		"description": "this is a Create test"
+	}
+	
+	PUT (UPDATE);
+	/api/Classifieds/{id}
+	example;
+	{
+		"id": "string",
+		"title": "string",
+		"description": "string",
+		"date": "string"
+	}
+	
+	DELETE;
+	/api/Classifieds/{id}
 
 -------------
 I developed this project based on this Tutorial;
