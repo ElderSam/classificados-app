@@ -1,6 +1,7 @@
 ﻿using ClassifiedsAPI.Models;
 using ClassifiedsAPI.Services;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 
 /*
@@ -49,6 +50,8 @@ namespace ClassifiedsAPI.Controllers
         [HttpPost]
         public ActionResult<Classified> Create(Classified classified)
         {
+            classified.date = DateTime.Now.ToString("M/d/yyyy");
+
             _classifiedService.Create(classified);
 
             return CreatedAtRoute("GetClassified", new { id = classified.Id.ToString() }, classified);
