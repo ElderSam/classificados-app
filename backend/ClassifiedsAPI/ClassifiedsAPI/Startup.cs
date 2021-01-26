@@ -31,7 +31,9 @@ namespace ClassifiedsAPI
 
             services.AddSingleton<ClassifiedService>();
 
-            services.AddControllers();
+            services.AddControllers()
+                .AddNewtonsoftJson(options => options.UseMemberCasing()); // Makes the property names in the web API's serialized JSON response match their corresponding property names in the CLR object type.
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ClassifiedsAPI", Version = "v1" });
