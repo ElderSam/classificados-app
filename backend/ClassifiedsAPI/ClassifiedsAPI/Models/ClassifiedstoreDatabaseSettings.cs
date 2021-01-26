@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 
 namespace ClassifiedsAPI.Models
 {
-{
     public class ClassifiedstoreDatabaseSettings : IClassifiedstoreDatabaseSettings // implements the interface
     {
         public string ClassifiedsCollectionName { get; set; }
@@ -19,5 +18,4 @@ namespace ClassifiedsAPI.Models
         string ConnectionString { get; set; }
         string DatabaseName { get; set; }
     }
-}
 }
