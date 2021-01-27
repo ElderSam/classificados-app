@@ -1,13 +1,29 @@
+import React, { useEffect } from 'react';
 import ClassifiedItem from './ClassifiedItem';
 
 import './ClassifiedList.css';
 
-function ClassifiedList() {
+import { getClassifieds } from "../services/api";
+
+export default function ClassifiedList() {
+  const [classifieds, setClassifieds] = React.useState([]);
+
+  useEffect(() =>  {
+    getClassifieds().then((response) => {
+      setClassifieds(response);
+    });
+  }, []);
+
   return (
     <div class="list">
-        <ClassifiedItem />
+      {classifieds.map((classified, index) => (
+        <ClassifiedItem
+          key={`${classified}-${index}`}
+          classified={classified}
+          index={index}
+        />
+      ))}
+      
     </div>
   );
 }
-
-export default ClassifiedList;
