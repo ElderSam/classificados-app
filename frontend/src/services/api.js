@@ -1,8 +1,11 @@
-const port = '5001';
-const URL = `https://localhost:${port}/api/classifieds`;
+import axios from 'axios';
 
-export async function getClassifieds() {
-    const response = await fetch(URL);
-    const classifieds = await response.json();
-    return classifieds;
-}
+const port = '5001';
+
+const api = axios.create({
+    baseURL: `https://localhost:${port}/api`
+});
+
+export default api;
+
+/* Note: To access http://localhost:5001/api, you must start the server in backend/ */

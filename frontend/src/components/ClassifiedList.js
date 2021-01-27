@@ -3,7 +3,7 @@ import ClassifiedItem from './ClassifiedItem';
 
 import './ClassifiedList.css';
 
-import { getClassifieds } from "../services/api";
+import api from "../services/api";
 
 export default function ClassifiedList() {
   const [classifieds, setClassifieds] = React.useState([]);
@@ -13,6 +13,12 @@ export default function ClassifiedList() {
       setClassifieds(response);
     });
   }, []);
+
+  const getClassifieds = async () => {
+    const response = await api.get("/classifieds")
+    console.log(response.data);
+    return response.data;
+  }
 
   return (
     <div class="list">
