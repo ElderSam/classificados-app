@@ -14,7 +14,7 @@ Note: In this case the Database/ folder is the <data_directory_path>
 Open terminal in \backend\ClassifiedsAPI\ClassifiedsAPI and execute the comand;
 	dotnet run
 OR
-Open Visual Studio and click in Run
+Open Visual Studio and click in Run (In this case, if you want to test the frontend, you must to set the port in frontend/src/services/api.js)
 
 #3. Test the web API
 Navigate to;
@@ -47,4 +47,8 @@ Navigate to;
 -------------
 I developed this project based on this Tutorial;
 https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-mongo-app?view=aspnetcore-5.0&tabs=visual-studio#configure-json-serialization-options
-	
+
+
+#Learn;
+Cors;
+https://docs.microsoft.com/en-us/aspnet/core/security/cors?view=aspnetcore-5.0#enable-cors-with-attributes

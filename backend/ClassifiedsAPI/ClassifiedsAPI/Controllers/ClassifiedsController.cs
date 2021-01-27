@@ -1,5 +1,6 @@
 ﻿using ClassifiedsAPI.Models;
 using ClassifiedsAPI.Services;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -30,10 +31,14 @@ namespace ClassifiedsAPI.Controllers
             _classifiedService = classifiedService;
         }
 
+        // GET api/values
+        [EnableCors("AnotherPolicy")]
         [HttpGet]
         public ActionResult<List<Classified>> Get() =>
             _classifiedService.Get();
 
+        // GET api/values/:id
+        [EnableCors("Policy1")]
         [HttpGet("{id:length(24)}", Name = "GetClassified")]
         public ActionResult<Classified> Get(string id)
         {

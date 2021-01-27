@@ -22,6 +22,24 @@ namespace ClassifiedsAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddPolicy("Policy1",
+                    builder =>
+                    {
+                        builder.WithOrigins("http://example.com",
+                                            "http://localhost:3000");
+                    });
+
+                options.AddPolicy("AnotherPolicy",
+                    builder =>
+                    {
+                        builder.WithOrigins("http://localhost:3000")
+                                            .AllowAnyHeader()
+                                            .AllowAnyMethod();
+                    });
+            });
+
             // requires using Microsoft.Extensions.Options
             services.Configure<ClassifiedstoreDatabaseSettings>(
                 Configuration.GetSection(nameof(ClassifiedstoreDatabaseSettings)));
@@ -53,6 +71,8 @@ namespace ClassifiedsAPI
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors();
 
             app.UseAuthorization();
 
