@@ -26,7 +26,7 @@ function App() {
     <div className="App">
       <Header />
       <ClassifiedList classifieds={classifieds}/>
-      <FooterList />
+      <FooterList total={classifieds.length} />
     </div>
   );
 }

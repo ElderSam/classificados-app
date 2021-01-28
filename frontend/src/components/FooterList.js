@@ -1,9 +1,9 @@
 import './FooterList.css';
 
-function FooterList() {
+function FooterList({ total }) {
     return(
         <div class='div-grey' id='footer-list'>
-            5 classificados
+            {total} classificados
         </div>
     );
 }
