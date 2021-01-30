@@ -10,7 +10,7 @@ import './App.css';
 
 function App() {
   const dispatch = useDispatch();
-  const classifiedsList = useSelector(state => state.classifiedsList);
+  const classifiedsList = useSelector(state => state.classifiedsList); // the state contains all the states declared in our combineReducer
   const { loading, error, classifieds } = classifiedsList;
 
   useEffect(() => { // will be caled when component didmount
