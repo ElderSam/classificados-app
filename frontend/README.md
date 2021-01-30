@@ -6,6 +6,8 @@
 2. Start the app;
     npm start
 
+# Redux Devtools
+With the app running, open your chrome developer tools ctrl + shift + c and go to the redux tab and click on state to see the initial state we declared in our 'src/store/reducers/classifiedsReducer.js' file.
 
 # Tips
 I followed this tutorial to create this project;
