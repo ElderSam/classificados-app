@@ -1,10 +1,15 @@
 # App de Classificados
 
-1. Instalar dependências:
+1. Install dependences:
     npm install
 
-2. Iniciar app;
+2. Start the app;
     npm start
+
+
+# Tips
+I followed this tutorial to create this project;
+https://medium.com/how-to-react/how-to-use-redux-with-react-hooks-and-axios-a78d942fbe9c
 
 ---------------------------------------
 # Getting Started with Create React App

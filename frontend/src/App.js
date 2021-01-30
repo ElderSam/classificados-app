@@ -1,33 +1,32 @@
 import React, { useEffect } from 'react';
 import Header from './components/Header';
+import { useDispatch, useSelector } from "react-redux";
+
+import { getClassifieds } from './store/actions/classifiedAction';
 import ClassifiedList from './components/ClassifiedList';
 import FooterList from './components/FooterList';
 
 import './App.css';
 
-import api from "./services/api";
-
 function App() {
-  const [classifieds, setClassifieds] = React.useState([]);
+  const dispatch = useDispatch();
+  const classifiedsList = useSelector(state => state.classifiedsList);
+  const { loading, error, classifieds } = classifiedsList;
 
-  useEffect(() =>  {
-    getClassifieds().then((response) => {
-      setClassifieds(response);
-    });
-  }, []);
-
-  const getClassifieds = async () => {
-    const response = await api.get("/classifieds")
-    console.log(response.data);
-    return response.data;
-  }
+  useEffect(() => { // will be caled when component didmount
+    dispatch(getClassifieds()) 
+  }, [dispatch])
 
   return (
-    <div className="App">
-      <Header />
-      <ClassifiedList classifieds={classifieds}/>
-      <FooterList total={classifieds.length} />
-    </div>
+    <>
+    {loading ? "Loading..." : error ? error.message : 
+      <div className="App">
+        <Header />
+        <ClassifiedList classifieds={classifieds}/>
+        <FooterList total={classifieds.length} />
+      </div>
+    }
+    </>  
   );
 }
 
