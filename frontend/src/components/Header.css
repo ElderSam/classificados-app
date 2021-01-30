@@ -8,12 +8,13 @@
     padding: 0 1.7rem;
 }
 
-.App-header button {
+.App-header .link {
     font-size: 16px;
     font-weight: 500;
+    text-decoration: none;
 }
 
-.App-header button:hover {
+.App-header .link:hover {
     background-color: lightgreen;
     color: black;
 }
