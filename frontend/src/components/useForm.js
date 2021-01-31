@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
 
 const useForm = (initialFieldValues, validate, setCurrentId) => {
     const [values, setValues] = useState(initialFieldValues)
@@ -15,6 +15,12 @@ const useForm = (initialFieldValues, validate, setCurrentId) => {
     }
 
     const resetForm = () => {
+        const titleField = document.querySelector('#title')	
+        const descField = document.querySelector('#description')	
+
+        titleField.value = ''	
+        descField.value =''
+
         setValues({
             ...initialFieldValues
         })
