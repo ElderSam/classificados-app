@@ -56,7 +56,7 @@ namespace ClassifiedsAPI.Controllers
         [HttpPost]
         public ActionResult<Classified> Create(Classified classified)
         {
-            classified.date = DateTime.Now.ToString("M/d/yyyy");
+            classified.date = DateTime.Now.ToString("yyyy-MM-dd");
 
             _classifiedService.Create(classified);
 
