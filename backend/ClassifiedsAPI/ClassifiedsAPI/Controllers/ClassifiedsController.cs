@@ -32,13 +32,13 @@ namespace ClassifiedsAPI.Controllers
         }
 
         // GET api/values
-        [EnableCors("AnotherPolicy")]
+        [EnableCors("myPolicy1")]
         [HttpGet]
         public ActionResult<List<Classified>> Get() =>
             _classifiedService.Get();
 
         // GET api/values/:id
-        [EnableCors("Policy1")]
+        [EnableCors("myPolicy1")]
         [HttpGet("{id:length(24)}", Name = "GetClassified")]
         public ActionResult<Classified> Get(string id)
         {
@@ -52,6 +52,7 @@ namespace ClassifiedsAPI.Controllers
             return classified;
         }
 
+        [EnableCors("myPolicy1")]
         [HttpPost]
         public ActionResult<Classified> Create(Classified classified)
         {
@@ -62,6 +63,7 @@ namespace ClassifiedsAPI.Controllers
             return CreatedAtRoute("GetClassified", new { id = classified.Id.ToString() }, classified);
         }
 
+        [EnableCors("myPolicy1")]
         [HttpPut("{id:length(24)}")]
         public IActionResult Update(string id, Classified classifiedIn)
         {
@@ -77,6 +79,7 @@ namespace ClassifiedsAPI.Controllers
             return NoContent();
         }
 
+        [EnableCors("myPolicy1")]
         [HttpDelete("{id:length(24)}")]
         public IActionResult Delete(string id)
         {

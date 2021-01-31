@@ -24,20 +24,19 @@ namespace ClassifiedsAPI
         {
             services.AddCors(options =>
             {
-                options.AddPolicy("Policy1",
-                    builder =>
-                    {
-                        builder.WithOrigins("http://example.com",
-                                            "http://localhost:3000");
-                    });
-
-                options.AddPolicy("AnotherPolicy",
+                options.AddPolicy("myPolicy1",
                     builder =>
                     {
                         builder.WithOrigins("http://localhost:3000")
                                             .AllowAnyHeader()
                                             .AllowAnyMethod();
                     });
+
+                /*options.AddPolicy("AnotherPolicy",
+                    builder =>
+                    {
+                        builder.WithOrigins("http://www.example.com", "http://localhost:3000");
+                    });*/
             });
 
             // requires using Microsoft.Extensions.Options
