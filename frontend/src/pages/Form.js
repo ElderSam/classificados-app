@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
+import ClassifiedForm from './../components/ClassifiedForm';
 
-function Form() {
+function Form({ ...props }) {
+    console.log(props)
     return(
-        <h1>I need a form here</h1>
+        <ClassifiedForm props={props} />
     )
 }
 

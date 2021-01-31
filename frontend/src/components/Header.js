@@ -5,7 +5,7 @@ function Header() {
   return (
     <header className="App-header">
       <h2>Classificados</h2>
-      <Link to="/form" class="div-grey link" id="btn-add">
+      <Link to="/form/0" class="div-grey link" id="btn-add">
         + Novo classificado
       </Link>
     </header>
