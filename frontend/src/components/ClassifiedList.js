@@ -10,7 +10,7 @@ export default function ClassifiedList({ classifieds }) {
     )
   }else {
     return (
-      <div class="list">
+      <div className="list">
         {classifieds.map((classified) => (
           <ClassifiedItem
             key={`${classified.id}`}

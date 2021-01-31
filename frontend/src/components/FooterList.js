@@ -2,7 +2,7 @@ import './FooterList.css';
 
 function FooterList({ total }) {
     return(
-        <div class='div-grey' id='footer-list'>
+        <div className='div-grey' id='footer-list'>
             {total} classificados
         </div>
     );

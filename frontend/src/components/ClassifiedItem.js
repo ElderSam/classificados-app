@@ -13,7 +13,7 @@ function ClassifiedItem({ classified, index }) {
 
   return (
     <>
-      <div class="div-grey card item">
+      <div className="div-grey card item">
         <h3>{title}</h3>
         <label>{dateAux}</label>
         <p>{description}</p>
