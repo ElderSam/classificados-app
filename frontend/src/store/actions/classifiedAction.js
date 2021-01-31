@@ -27,9 +27,12 @@ export const getClassifiedById = (id) => async (dispatch) => {
 
 export const createClassified = (data, onSuccess) => dispatch => {
     console.log(data)
+
     api.classifieds().create(data)
         .then(res => {
-            console.log(res)
+            console.log('Status', res.status, res.statusText)
+            console.log(res.data)
+
             dispatch({
                 type: CREATE,
                 payload: res.data
