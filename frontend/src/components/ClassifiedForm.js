@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch/*, useSelector*/ } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from 'react-router-dom';
 
 import { getClassifiedById, createClassified, updateClassified  } from './../store/actions/classifiedAction';
@@ -15,10 +15,10 @@ const initialFieldValues = {
 
 export default function ClassifiedForm({ props }) {
     const dispatch = useDispatch(); // this dispatch will allow my action to arrive at the store
-    //const state = useSelector(state => state.classifiedsList); // conects your component to Store with the useSelector
+    const state = useSelector(state => state.classifiedsList); // conects your component to Store with the useSelector
     const [currentId, setCurrentId] = useState(props.match.params.id)
-    //const { classified } = state;
-    //console.log(classified);
+    const { classified } = state;
+    console.log(classified);
 
     //validate()
     //validate({title:'title 01'})
@@ -56,10 +56,12 @@ export default function ClassifiedForm({ props }) {
             console.log('validated')
             const onSuccess = () => {
                 alert('Cadastrado com Successo')
+
                 resetForm()
             }
-
+            
             if (currentId === '0') {
+                console.log(values)
                 dispatch(createClassified(values, onSuccess))
             }else{
                 updateClassified(currentId, values, onSuccess)
@@ -118,7 +120,8 @@ export default function ClassifiedForm({ props }) {
                     Adicionar
                 </button>
 
-                <button type="reset"
+                <button
+                    variant="contained"
                     onClick={resetForm}
                 >
                     Reset
