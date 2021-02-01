@@ -11,7 +11,7 @@ function ClassifiedItem({ classified, index }) {
   const day = date.substr(8, 2)
 
   const arrMonths = new Array ('janeiro', 'fevereiro', 'março', 'abril', 'Maio', 'junho', 'agosto', 'outubro', 'novembro', 'dezembro');
-  const dateAux = `${day} de ${arrMonths[month]} de ${year}`;
+  const dateAux = `${day} de ${arrMonths[month-1]} de ${year}`;
 
   //const linkFormEdit = `form/${Id}`;
 
