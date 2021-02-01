@@ -9,6 +9,8 @@ export default function ClassifiedList({ classifieds }) {
       <p>Não há nenhum Classificado cadastrado!</p>
     )
   }else {
+    classifieds = classifieds.slice(0).reverse(); // inverts positions in the array (to make the most recent ones first)
+
     return (
       <div className="list">
         {classifieds.map((classified) => (
