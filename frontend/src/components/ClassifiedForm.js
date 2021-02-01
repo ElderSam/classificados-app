@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch/*, useSelector*/ } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from 'react-router-dom';
 
 import { getClassifiedById, createClassified, updateClassified  } from './../store/actions/classifiedAction';
 import useForm from './useForm';
 
+import {
+    ArrowBackIosIcon,
+} from './icons';
 import './ClassifiedForm.css';
 
 const initialFieldValues = {
@@ -15,10 +18,28 @@ const initialFieldValues = {
 
 export default function ClassifiedForm({ props }) {
     const dispatch = useDispatch(); // this dispatch will allow my action to arrive at the store
-    //const state = useSelector(state => state.classifiedsList); // conects your component to Store with the useSelector
+    const state = useSelector(state => state.classifiedsList); // conects your component to Store with the useSelector
     const [currentId, setCurrentId] = useState(props.match.params.id)
-    //const { classified } = state;
-    //console.log(classified);
+    const [filledFields, setfilledFields] = useState(false);
+    const { classified } = state;
+
+    const fillInFields = () => {
+        if(classified.Id !== undefined) {
+            console.log(classified);
+            const titleField = document.querySelector('#title')	
+            const descField = document.querySelector('#description')
+            
+            console.log(titleField)
+            if(titleField !== null) {
+                titleField.value = classified.title;
+                descField.value = classified.description;
+                setfilledFields(true);
+            }
+        }
+    }
+
+    if(currentId !== '0' && !filledFields)
+        fillInFields();
 
     //validate()
     //validate({title:'title 01'})
@@ -64,7 +85,7 @@ export default function ClassifiedForm({ props }) {
                 console.log(values)
                 dispatch(createClassified(values, onSuccess))
             }else{
-                updateClassified(currentId, values, onSuccess)
+                dispatch(updateClassified(currentId, values, onSuccess))
             }
         }
     }    
@@ -87,8 +108,11 @@ export default function ClassifiedForm({ props }) {
     }, [dispatch, setValues, setErrors, currentId])
 
     return(
+        <>
+        <Link to="/" title="voltar">
+            <ArrowBackIosIcon />
+        </Link>
         <div className='container'>
-            <Link to="/">Voltar</Link>
             <h1>Formulário de Classificado</h1>
 
             <form onSubmit={handleSubmit}>
@@ -128,5 +152,6 @@ export default function ClassifiedForm({ props }) {
                 </button>
             </form>
         </div>
+        </>
     )
 }
